@@ -1,3 +1,9 @@
+audioreach-conf (1.0.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- GitHub Service Bot <githubservice@qti.qualcomm.com>  Thu, 21 May 2026 07:25:29 +0000
+
 audioreach-conf (1.0.0-1) unstable; urgency=low
 
   * Initial release.
