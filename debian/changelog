@@ -1,5 +1,6 @@
-audioreach-conf (1.1.0-0qli+staging1~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-0qli+staging1) forky; urgency=medium
 
+  [ Agathe Porte ]
   * Initial release.
 
- -- Agathe Porte <agathe.porte@oss.qualcomm.com>  Wed, 01 Jul 2026 16:15:37 +0200
+ -- root <root@ecca48539a5a>  Wed, 01 Jul 2026 15:03:42 +0000
