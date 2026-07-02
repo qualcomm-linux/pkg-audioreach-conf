@@ -1,8 +1,9 @@
-audioreach-conf (1.1.0-1qli+staging1~bpo13+1~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-1qli+staging1~bpo13+1) trixie; urgency=medium
 
+  [ Agathe Porte ]
   * Rebuild for trixie.
 
- -- Agathe Porte <agathe.porte@oss.qualcomm.com>  Thu, 02 Jul 2026 13:46:39 +0200
+ -- root <root@13f0d1db146a>  Thu, 02 Jul 2026 11:49:44 +0000
 
 audioreach-conf (1.1.0-1qli+staging1) forky; urgency=medium
 
