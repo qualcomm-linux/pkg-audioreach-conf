@@ -1,9 +1,10 @@
-audioreach-conf (1.1.0-1) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-1) trixie; urgency=medium
 
+  [ GitHub Service Bot ]
   * New upstream release
   * New upstream release
 
- -- GitHub Service Bot <githubservice@qti.qualcomm.com>  Wed, 01 Jul 2026 08:55:04 +0000
+ -- root <root@4edfa5f6ad27>  Thu, 02 Jul 2026 06:39:35 +0000
 
 audioreach-conf (1.0.0-1) unstable; urgency=low
 
