@@ -1,8 +1,10 @@
-audioreach-conf (1.1.0-0qli+staging3~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-1qli+staging1~) UNRELEASED; urgency=medium
 
-  * Unreleased changes
+  * Version 1.1.0-1 was uploaded by mistake in qli-staging/trixie. Bump all
+    versions so they appear higher even if this package was never released
+    into Debian.
 
- -- root <root@e305ce0f1319>  Thu, 02 Jul 2026 11:20:06 +0000
+ -- Agathe Porte <agathe.porte@oss.qualcomm.com>  Thu, 02 Jul 2026 13:39:31 +0200
 
 audioreach-conf (1.1.0-0qli+staging2) forky; urgency=medium
 
