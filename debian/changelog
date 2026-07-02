@@ -1,4 +1,4 @@
-audioreach-conf (1.1.0-0qli+staging2~bpo13+1) trixie; urgency=medium
+audioreach-conf (1.1.0-0qli+staging2~bpo13+1~) trixie; urgency=medium
 
   * Rebuild for trixie.
 
