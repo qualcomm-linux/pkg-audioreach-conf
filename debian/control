@@ -12,7 +12,7 @@ Vcs-Git: https://github.com/qualcomm-linux/pkg-audioreach-conf.git
 Vcs-Browser: https://github.com/qualcomm-linux/pkg-audioreach-conf
 
 Package: audioreach-conf
-Architecture: arm64
+Architecture: all
 Depends:
  ${misc:Depends},
 Recommends:
