@@ -2,7 +2,7 @@ audioreach-conf (1.1.0-1qli+staging2~) UNRELEASED; urgency=medium
 
   * Unreleased changes
 
- -- root <root@011187bf621c>  Thu, 02 Jul 2026 11:45:22 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:45:22 +0000
 
 audioreach-conf (1.1.0-1qli+staging1) forky; urgency=medium
 
@@ -11,18 +11,18 @@ audioreach-conf (1.1.0-1qli+staging1) forky; urgency=medium
     versions so they appear higher even if this package was never released
     into Debian.
 
- -- root <root@bf1591aa257b>  Thu, 02 Jul 2026 11:42:58 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:42:58 +0000
 
 audioreach-conf (1.1.0-0qli+staging2) forky; urgency=medium
 
   [ Agathe Porte ]
   * No-changes rebuild for Debusine
 
- -- root <root@6228ece1a6dc>  Thu, 02 Jul 2026 11:17:42 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:17:42 +0000
 
 audioreach-conf (1.1.0-0qli+staging1) forky; urgency=medium
 
   [ Agathe Porte ]
   * Initial release.
 
- -- root <root@ecca48539a5a>  Wed, 01 Jul 2026 15:03:42 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 01 Jul 2026 15:03:42 +0000
