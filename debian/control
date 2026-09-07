@@ -11,13 +11,13 @@ Homepage: https://github.com/Audioreach/audioreach-conf
 Vcs-Git: https://github.com/qualcomm-linux/pkg-audioreach-conf.git
 Vcs-Browser: https://github.com/qualcomm-linux/pkg-audioreach-conf
 
-Package: audioreach-conf
+Package: audioreach-calibration-data
 Architecture: all
 Depends:
  ${misc:Depends},
-Recommends:
- qcom-kvh2xml-dev,
-Description: AudioReach configuration files
+Provides:
+ audioreach-conf,
+Description: AudioReach topology and calibration data
  Provides vendor-, chipset-, and board-specific configuration
  data used by AudioReach components, including topology and
  calibration key-value definitions for audio use cases.
