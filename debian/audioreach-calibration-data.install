@@ -1,1 +1,2 @@
-etc/acdbdata/*
+etc/audioreach/*.xml
+usr/share/audioreach/*

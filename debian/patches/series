@@ -1,0 +1,3 @@
+0001-build-add-AR_PATHS-macro-for-shared-installation-pat.patch
+0002-build-install-ACDB-data-under-audioreachdatadir.patch
+0003-build-install-card-defs.xml-under-audioreachconfdir.patch

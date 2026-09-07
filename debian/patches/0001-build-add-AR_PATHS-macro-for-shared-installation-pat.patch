@@ -1,0 +1,178 @@
+From: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
+Date: Thu, 3 Sep 2026 15:51:59 +0300
+Subject: build: add AR_PATHS macro for shared installation paths
+
+Introduce m4/audioreach-paths.m4, defining three directories as both
+configure options and make variables:
+
+  audioreachconfdir    ${sysconfdir}/audioreach
+  audioreachdatadir    ${datadir}/audioreach
+  audioreachdeltadir   ${localstatedir}/lib/audioreach/acdb-delta
+
+Nothing uses them yet; the following commits route the install
+directories through them.
+
+The audio stack currently installs unqualified names into the root of
+/etc: card-defs.xml here, and plugin_manager.xml and usecaseKvManager.xml
+from audioreach-pal. Nothing about "plugin_manager.xml" is
+audio-specific, and /etc is a namespace shared with every other package
+on the system. /etc/card-defs.xml also does not say what it configures,
+whereas ls /etc/audioreach/ is a complete inventory of what is tunable
+in the audio stack.
+
+The paths are also hardcoded today, so this package cannot be built
+correctly for any prefix but the default: --sysconfdir has no effect.
+Distributions that want the historical locations can pass
+--with-audioreach-confdir and --with-audioreach-datadir.
+
+The same macro is used by audioreach-graphmgr and audioreach-pal, which
+declare the locations of files this package installs. It is copied into
+each project rather than shared through a package: it has no
+dependencies, and centralising it would give three repos a build-time
+dependency on a fourth. This repo holds the canonical copy; bump the
+serial when it changes.
+
+Copies live in m4/ and qcom/qli/m4/ because qcom/qli is an independent
+AC_INIT sub-package that can be configured standalone.
+
+Origin: https://github.com/AudioReach/audioreach-conf/pull/93
+Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
+---
+ configure.ac                    |  2 ++
+ m4/audioreach-paths.m4          | 46 +++++++++++++++++++++++++++++++++++++++++
+ qcom/qli/configure.ac           |  2 ++
+ qcom/qli/m4/audioreach-paths.m4 | 46 +++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 96 insertions(+)
+ create mode 100644 m4/audioreach-paths.m4
+ create mode 100644 qcom/qli/m4/audioreach-paths.m4
+
+diff --git a/configure.ac b/configure.ac
+index 6af70b4..7919729 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -12,6 +12,8 @@ AC_INIT([audioreach-conf],1.0.0)
+ AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
+ # defines some macros variable to be included by source
+ AC_CONFIG_HEADERS([config.h])
++AC_CONFIG_MACRO_DIRS([m4])
++AR_PATHS
+ 
+ # Checks for programs.
+ AC_PROG_CC
+diff --git a/m4/audioreach-paths.m4 b/m4/audioreach-paths.m4
+new file mode 100644
+index 0000000..eda3cbc
+--- /dev/null
++++ b/m4/audioreach-paths.m4
+@@ -0,0 +1,46 @@
++# audioreach-paths.m4 -- shared installation paths for AudioReach
++# serial 1
++#
++# SPDX-License-Identifier: BSD-3-Clause
++#
++# Usage, in configure.ac:
++#
++#     AC_CONFIG_MACRO_DIRS([m4])
++#     AR_PATHS
++#
++# Provides three directories, as configure options and as make variables:
++#
++#     audioreachconfdir    integrator-editable configuration
++#     audioreachdatadir    read-only vendor data
++#     audioreachdeltadir   runtime-writable ACDB deltas
++#
++# Do not AC_DEFINE these. ${sysconfdir} is unexpanded at configure time, so
++# AC_DEFINE would put a literal "${prefix}" into config.h. Pass them to the
++# compiler from Makefile.am instead, where make expands them:
++#
++#     AM_CFLAGS += -DCARD_DEF_FILE=\"$(audioreachconfdir)/card-defs.xml\"
++
++AC_DEFUN([AR_PATHS], [
++
++  AC_ARG_WITH([audioreach-confdir],
++    [AS_HELP_STRING([--with-audioreach-confdir=DIR],
++      [AudioReach configuration directory @<:@SYSCONFDIR/audioreach@:>@])],
++    [audioreachconfdir="$withval"],
++    [audioreachconfdir='${sysconfdir}/audioreach'])
++
++  AC_ARG_WITH([audioreach-datadir],
++    [AS_HELP_STRING([--with-audioreach-datadir=DIR],
++      [AudioReach read-only data directory @<:@DATADIR/audioreach@:>@])],
++    [audioreachdatadir="$withval"],
++    [audioreachdatadir='${datadir}/audioreach'])
++
++  AC_ARG_WITH([audioreach-deltadir],
++    [AS_HELP_STRING([--with-audioreach-deltadir=DIR],
++      [AudioReach ACDB delta directory @<:@LOCALSTATEDIR/lib/audioreach/acdb-delta@:>@])],
++    [audioreachdeltadir="$withval"],
++    [audioreachdeltadir='${localstatedir}/lib/audioreach/acdb-delta'])
++
++  AC_SUBST([audioreachconfdir])
++  AC_SUBST([audioreachdatadir])
++  AC_SUBST([audioreachdeltadir])
++])
+diff --git a/qcom/qli/configure.ac b/qcom/qli/configure.ac
+index a4994c1..a340cbb 100644
+--- a/qcom/qli/configure.ac
++++ b/qcom/qli/configure.ac
+@@ -11,6 +11,8 @@ AC_INIT([audioreach-conf],1.0.0)
+ AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
+ # defines some macros variable to be included by source
+ AC_CONFIG_HEADERS([config.h])
++AC_CONFIG_MACRO_DIRS([m4])
++AR_PATHS
+ 
+ # Checks for programs.
+ AC_PROG_CC
+diff --git a/qcom/qli/m4/audioreach-paths.m4 b/qcom/qli/m4/audioreach-paths.m4
+new file mode 100644
+index 0000000..eda3cbc
+--- /dev/null
++++ b/qcom/qli/m4/audioreach-paths.m4
+@@ -0,0 +1,46 @@
++# audioreach-paths.m4 -- shared installation paths for AudioReach
++# serial 1
++#
++# SPDX-License-Identifier: BSD-3-Clause
++#
++# Usage, in configure.ac:
++#
++#     AC_CONFIG_MACRO_DIRS([m4])
++#     AR_PATHS
++#
++# Provides three directories, as configure options and as make variables:
++#
++#     audioreachconfdir    integrator-editable configuration
++#     audioreachdatadir    read-only vendor data
++#     audioreachdeltadir   runtime-writable ACDB deltas
++#
++# Do not AC_DEFINE these. ${sysconfdir} is unexpanded at configure time, so
++# AC_DEFINE would put a literal "${prefix}" into config.h. Pass them to the
++# compiler from Makefile.am instead, where make expands them:
++#
++#     AM_CFLAGS += -DCARD_DEF_FILE=\"$(audioreachconfdir)/card-defs.xml\"
++
++AC_DEFUN([AR_PATHS], [
++
++  AC_ARG_WITH([audioreach-confdir],
++    [AS_HELP_STRING([--with-audioreach-confdir=DIR],
++      [AudioReach configuration directory @<:@SYSCONFDIR/audioreach@:>@])],
++    [audioreachconfdir="$withval"],
++    [audioreachconfdir='${sysconfdir}/audioreach'])
++
++  AC_ARG_WITH([audioreach-datadir],
++    [AS_HELP_STRING([--with-audioreach-datadir=DIR],
++      [AudioReach read-only data directory @<:@DATADIR/audioreach@:>@])],
++    [audioreachdatadir="$withval"],
++    [audioreachdatadir='${datadir}/audioreach'])
++
++  AC_ARG_WITH([audioreach-deltadir],
++    [AS_HELP_STRING([--with-audioreach-deltadir=DIR],
++      [AudioReach ACDB delta directory @<:@LOCALSTATEDIR/lib/audioreach/acdb-delta@:>@])],
++    [audioreachdeltadir="$withval"],
++    [audioreachdeltadir='${localstatedir}/lib/audioreach/acdb-delta'])
++
++  AC_SUBST([audioreachconfdir])
++  AC_SUBST([audioreachdatadir])
++  AC_SUBST([audioreachdeltadir])
++])

@@ -1,4 +1,3 @@
 # Those locations/names are too generic
 # https://github.com/qualcomm-linux/pkg-audioreach-conf/issues/35
-etc/card-defs.xml
 usr/lib/*/pkgconfig/config.pc

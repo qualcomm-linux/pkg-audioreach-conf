@@ -1,0 +1,212 @@
+From: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
+Date: Thu, 3 Sep 2026 15:53:58 +0300
+Subject: build: install ACDB data under $(audioreachdatadir)
+
+acdb_cal.acdb and workspaceFileXml.qwsp are read-only vendor data, not
+configuration: they are produced offline by QACT and are not edited on
+the device. They belong under ${datadir}, not ${sysconfdir}.
+
+  /etc/acdbdata/<BOARD>/ -> /usr/share/audioreach/acdbdata/<BOARD>/
+
+qcm6490 has two of these directories -- QCS6490_RB3Gen2 and QCM6490_IDP
+-- and both are converted.
+
+audioreach-graphmgr reads this location as -DACDB_PATH and must be
+updated to match. Packaging that lists ${sysconfdir}/acdbdata needs
+updating too.
+
+Note that ACDB tuning deltas are written at runtime by ATS, so they
+cannot live under a read-only /usr; audioreachdeltadir is separate for
+that reason and is used by audioreach-graphmgr, not here.
+
+Origin: https://github.com/AudioReach/audioreach-conf/pull/93
+Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
+---
+ linux/reference/Makefile.am    | 2 +-
+ nxp/reference/Makefile.am      | 2 +-
+ qcom/qli/GLYMUR/Makefile.am    | 2 +-
+ qcom/qli/Kaanapali/Makefile.am | 2 +-
+ qcom/qli/MAHUA/Makefile.am     | 2 +-
+ qcom/qli/X1E80100/Makefile.am  | 2 +-
+ qcom/qli/qcm6490/Makefile.am   | 4 ++--
+ qcom/qli/qcs615/Makefile.am    | 2 +-
+ qcom/qli/qcs8275/Makefile.am   | 2 +-
+ qcom/qli/qcs8300/Makefile.am   | 2 +-
+ qcom/qli/qcs9075/Makefile.am   | 2 +-
+ qcom/qli/qcs9100/Makefile.am   | 2 +-
+ qcom/qli/sm8750/Makefile.am    | 2 +-
+ 13 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/linux/reference/Makefile.am b/linux/reference/Makefile.am
+index 25e514c..f670368 100644
+--- a/linux/reference/Makefile.am
++++ b/linux/reference/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/nxp/reference/Makefile.am b/nxp/reference/Makefile.am
+index 827eb97..00e03c9 100644
+--- a/nxp/reference/Makefile.am
++++ b/nxp/reference/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/GLYMUR/Makefile.am b/qcom/qli/GLYMUR/Makefile.am
+index 57f70cd..f10440b 100644
+--- a/qcom/qli/GLYMUR/Makefile.am
++++ b/qcom/qli/GLYMUR/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/GLYMUR/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/GLYMUR/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/Kaanapali/Makefile.am b/qcom/qli/Kaanapali/Makefile.am
+index e58f452..07f0ddc 100644
+--- a/qcom/qli/Kaanapali/Makefile.am
++++ b/qcom/qli/Kaanapali/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/Kaanapali/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/Kaanapali/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/MAHUA/Makefile.am b/qcom/qli/MAHUA/Makefile.am
+index 596127f..e433ac5 100644
+--- a/qcom/qli/MAHUA/Makefile.am
++++ b/qcom/qli/MAHUA/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/MAHUA/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/MAHUA/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/X1E80100/Makefile.am b/qcom/qli/X1E80100/Makefile.am
+index 79fe460..168cd3d 100644
+--- a/qcom/qli/X1E80100/Makefile.am
++++ b/qcom/qli/X1E80100/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/X1E80100/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/X1E80100/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/qcm6490/Makefile.am b/qcom/qli/qcm6490/Makefile.am
+index e0ebc31..7e50b4e 100644
+--- a/qcom/qli/qcm6490/Makefile.am
++++ b/qcom/qli/qcm6490/Makefile.am
+@@ -7,10 +7,10 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/QCS6490_RB3Gen2/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/QCS6490_RB3Gen2/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+-config_acdbdata_idpdir = $(sysconfdir)/acdbdata/QCM6490_IDP/
++config_acdbdata_idpdir = $(audioreachdatadir)/acdbdata/QCM6490_IDP/
+ config_acdbdata_idp_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/qcs615/Makefile.am b/qcom/qli/qcs615/Makefile.am
+index 4d73ad6..de88a68 100644
+--- a/qcom/qli/qcs615/Makefile.am
++++ b/qcom/qli/qcs615/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/TALOS_EVK/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/TALOS_EVK/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/qcs8275/Makefile.am b/qcom/qli/qcs8275/Makefile.am
+index 87e7f22..98675c9 100644
+--- a/qcom/qli/qcs8275/Makefile.am
++++ b/qcom/qli/qcs8275/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/MONACO_EVK/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/MONACO_EVK/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/qcs8300/Makefile.am b/qcom/qli/qcs8300/Makefile.am
+index 70db981..d1678c5 100644
+--- a/qcom/qli/qcs8300/Makefile.am
++++ b/qcom/qli/qcs8300/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/qcs8300/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/qcs8300/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/qcs9075/Makefile.am b/qcom/qli/qcs9075/Makefile.am
+index 735ee05..6fd1ee4 100644
+--- a/qcom/qli/qcs9075/Makefile.am
++++ b/qcom/qli/qcs9075/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/LEMANS_EVK/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/LEMANS_EVK/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/qcs9100/Makefile.am b/qcom/qli/qcs9100/Makefile.am
+index fa35744..a8126c5 100644
+--- a/qcom/qli/qcs9100/Makefile.am
++++ b/qcom/qli/qcs9100/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/qcs9100/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/qcs9100/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/sm8750/Makefile.am b/qcom/qli/sm8750/Makefile.am
+index e7e4542..f158483 100644
+--- a/qcom/qli/sm8750/Makefile.am
++++ b/qcom/qli/sm8750/Makefile.am
+@@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/SM8750_MTP/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/SM8750_MTP/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
