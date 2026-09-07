@@ -2,6 +2,10 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: audioreach-conf
 Upstream-Contact: https://github.com/AudioReach/audioreach-conf/issues/new
 Source: https://github.com/AudioReach/audioreach-conf
+Disclaimer: Non-free because binary calibration data in acdbdata/*/acdb_cal.acdb
+ is produced by other binary blobs in acdbdata/*/workspaceFileXml.qwsp, using
+ the "AudioReach Composer" tool:
+ https://github.com/AudioReach/audioreach-conf/issues/90#issuecomment-5522202245
 
 Files: *
 Copyright: Qualcomm Technologies, Inc. and/or its subsidiaries

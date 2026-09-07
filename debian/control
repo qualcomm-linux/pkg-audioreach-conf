@@ -1,5 +1,5 @@
 Source: audioreach-conf
-Section: misc
+Section: non-free/misc
 Maintainer: Radhika Garg <radhgarg@qti.qualcomm.com>
 Uploaders:
  Agathe Porte <agathe.porte@oss.qualcomm.com>,
@@ -25,7 +25,7 @@ Description: AudioReach topology and calibration data
 Package: audioreach-kvh2xml-dev
 Architecture: any
 Multi-Arch: same
-Section: libdevel
+Section: non-free/libdevel
 Depends:
  ${misc:Depends},
 Breaks:
