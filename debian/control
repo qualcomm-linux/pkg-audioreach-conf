@@ -22,14 +22,9 @@ Description: AudioReach topology and calibration data
  data used by AudioReach components, including topology and
  calibration key-value definitions for audio use cases.
 
-Package: qcom-kvh2xml-dev
+Package: audioreach-kvh2xml-dev
 Architecture: any
 Multi-Arch: same
-Description: AudioReach kvh2xml - development files
- kvh2xml provides key-value mappings used to parse or translate Audio
- Calibration Database (ACDB) data into XML formats for AudioReach.
- .
- This package contains headers and pkgconf data.
 Section: libdevel
 Depends:
  ${misc:Depends},
@@ -37,3 +32,8 @@ Breaks:
  audioreach-conf (<< 1.1.0-1qli+staging2~),
 Replaces:
  audioreach-conf (<< 1.1.0-1qli+staging2~),
+Description: AudioReach kvh2xml - development files
+ kvh2xml provides key-value mappings used to parse or translate Audio
+ Calibration Database (ACDB) data into XML formats for AudioReach.
+ .
+ This package contains headers and pkgconf data.
