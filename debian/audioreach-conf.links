@@ -1,0 +1,3 @@
+# X1E80100 used as default configuration.
+# We might want to make that configurable in the future.
+usr/share/audioreach/X1E80100/card-defs.xml etc/audioreach/card-defs.xml
