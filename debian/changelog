@@ -1,8 +1,15 @@
-audioreach-conf (1.1.0-1qli1~bpo13+1~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-1qli2~bpo13+1~) UNRELEASED; urgency=medium
 
   * Rebuild for trixie/QLI.
 
- -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 09 Sep 2026 16:47:12 +0200
+ -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 09 Sep 2026 17:02:13 +0200
+
+audioreach-conf (1.1.0-1qli2) forky; urgency=medium
+
+  [ Lukas Märdian ]
+  * d/control: Drop staging Breaks/Replaces.
+
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 09 Sep 2026 14:57:42 +0000
 
 audioreach-conf (1.1.0-1qli1) forky; urgency=medium
 
