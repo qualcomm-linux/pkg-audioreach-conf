@@ -1,8 +1,21 @@
 audioreach-conf (1.1.0-1qli+staging3~) UNRELEASED; urgency=medium
 
-  * Unreleased changes
+  * d/control: Mark conf/data-files Arch:all.
+  * d/control: Rename to audioreach-calibration-data.
+  * d/control: Rename to audioreach-kvh2xml-dev.
+  * d/control,d/copyright: Section non-free/sound.
+  * d/patches: Move calibration data to individual namespace.
+  * d/control: Split audioreach-conf package for device specific PCM config.
+  * d/audioreach-*.links: Install symlinks for backwards compatibility.
+  * d/control: Mark conf/data-files Arch:all.
+  * d/control: Rename to audioreach-calibration-data.
+  * d/control: Rename to audioreach-kvh2xml-dev.
+  * d/control,d/copyright: Section non-free/misc.
+  * d/patches: Move calibration data to individual namespace.
+  * d/control: Split audioreach-conf package for device specific PCM config.
+  * d/audioreach-*.links: Install symlinks for backwards compatibility.
 
- -- Debusine Action Bot <noreply@bot.invalid>  Wed, 02 Sep 2026 13:05:56 +0000
+ -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 09 Sep 2026 15:57:56 +0200
 
 audioreach-conf (1.1.0-1qli+staging2) forky; urgency=medium
 
