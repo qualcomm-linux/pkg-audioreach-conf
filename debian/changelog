@@ -1,15 +1,50 @@
-audioreach-conf (1.1.0-1qli+staging1~bpo13+2~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-1qli+staging3~bpo13+1~) UNRELEASED; urgency=medium
 
   * Unreleased changes
 
- -- root <root@6cf3f350a79f>  Thu, 02 Jul 2026 11:53:14 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:53:14 +0000
+
+audioreach-conf (1.1.0-1qli+staging3) forky; urgency=medium
+
+  [ Lukas Märdian ]
+  * d/control: Mark conf/data-files Arch:all.
+  * d/control: Rename to audioreach-calibration-data.
+  * d/control: Rename to audioreach-kvh2xml-dev.
+  * d/control,d/copyright: Section non-free/sound.
+  * d/patches: Move calibration data to individual namespace.
+  * d/control: Split audioreach-conf package for device specific PCM config.
+  * d/audioreach-*.links: Install symlinks for backwards compatibility.
+  * d/control: Mark conf/data-files Arch:all.
+  * d/control: Rename to audioreach-calibration-data.
+  * d/control: Rename to audioreach-kvh2xml-dev.
+  * d/control,d/copyright: Section non-free/misc.
+  * d/patches: Move calibration data to individual namespace.
+  * d/control: Split audioreach-conf package for device specific PCM config.
+  * d/audioreach-*.links: Install symlinks for backwards compatibility.
+
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 09 Sep 2026 14:08:40 +0000
+
+audioreach-conf (1.1.0-1qli+staging2) forky; urgency=medium
+
+  [ Lukas Märdian ]
+  * d/copyright: Initial DEP-5 copyright.
+  * d/control: Wrap-and-sort.
+  * d/control: Drop implicit fields.
+  * d/control: Add myself as an uploader.
+  * d/control: Cleanup Vcs-Git.
+  * d/control: Split headers into qcom-kvh2xml-dev.
+  * d/rules: Make executable.
+  * d/audioreach-conf.install: Install only data-files.
+  * d/not-installed: Skip files with too generic names.
+
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 02 Sep 2026 13:02:11 +0000
 
 audioreach-conf (1.1.0-1qli+staging1~bpo13+1) trixie; urgency=medium
 
   [ Agathe Porte ]
   * Rebuild for trixie.
 
- -- root <root@13f0d1db146a>  Thu, 02 Jul 2026 11:49:44 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:49:44 +0000
 
 audioreach-conf (1.1.0-1qli+staging1) forky; urgency=medium
 
@@ -18,18 +53,18 @@ audioreach-conf (1.1.0-1qli+staging1) forky; urgency=medium
     versions so they appear higher even if this package was never released
     into Debian.
 
- -- root <root@bf1591aa257b>  Thu, 02 Jul 2026 11:42:58 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:42:58 +0000
 
 audioreach-conf (1.1.0-0qli+staging2) forky; urgency=medium
 
   [ Agathe Porte ]
   * No-changes rebuild for Debusine
 
- -- root <root@6228ece1a6dc>  Thu, 02 Jul 2026 11:17:42 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:17:42 +0000
 
 audioreach-conf (1.1.0-0qli+staging1) forky; urgency=medium
 
   [ Agathe Porte ]
   * Initial release.
 
- -- root <root@ecca48539a5a>  Wed, 01 Jul 2026 15:03:42 +0000
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 01 Jul 2026 15:03:42 +0000

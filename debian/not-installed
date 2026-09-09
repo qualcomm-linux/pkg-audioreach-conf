@@ -1,0 +1,6 @@
+# Those locations/names are too generic
+# https://github.com/qualcomm-linux/pkg-audioreach-conf/issues/35
+usr/lib/*/pkgconfig/config.pc
+# This became a symlink into /usr/share/audioreach/<BOARD>/card-defs.xml
+# see debian/audioreach-conf.links
+etc/audioreach/card-defs.xml

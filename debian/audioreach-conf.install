@@ -1,0 +1,13 @@
+nxp/reference/card-defs.xml usr/share/audioreach/nxp
+linux/reference/card-defs.xml usr/share/audioreach/linux
+qcom/qli/Kaanapali/card-defs.xml usr/share/audioreach/Kaanapali
+qcom/qli/sm8750/card-defs.xml usr/share/audioreach/sm8750
+qcom/qli/GLYMUR/card-defs.xml usr/share/audioreach/GLYMUR
+qcom/qli/qcs8300/card-defs.xml usr/share/audioreach/qcs8300
+qcom/qli/MAHUA/card-defs.xml usr/share/audioreach/MAHUA
+qcom/qli/qcs8275/card-defs.xml usr/share/audioreach/qcs8275
+qcom/qli/qcs9100/card-defs.xml usr/share/audioreach/qcs9100
+qcom/qli/qcm6490/card-defs.xml usr/share/audioreach/qcm6490
+qcom/qli/qcs9075/card-defs.xml usr/share/audioreach/qcs9075
+qcom/qli/qcs615/card-defs.xml usr/share/audioreach/qcs615
+qcom/qli/X1E80100/card-defs.xml usr/share/audioreach/X1E80100

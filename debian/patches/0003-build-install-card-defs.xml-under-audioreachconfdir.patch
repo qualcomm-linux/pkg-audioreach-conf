@@ -1,0 +1,183 @@
+From: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
+Date: Thu, 3 Sep 2026 15:55:40 +0300
+Subject: build: install card-defs.xml under $(audioreachconfdir)
+
+card-defs.xml is integrator-editable configuration, unlike the ACDB
+blobs installed alongside it, so it uses the configuration directory
+rather than the data directory.
+
+  /etc/card-defs.xml -> /etc/audioreach/card-defs.xml
+
+This file's location is also declared in audioreach-graphmgr
+(CARD_DEF_FILE) and audioreach-pal (SNDPARSER), both of which read it.
+pal cannot delegate the lookup: snd_card_def_get_card() takes a card
+number and no path. All three must move together, or audio comes up
+with no card definition and no obvious cause. A compatibility symlink
+at /etc/card-defs.xml is advisable for one release.
+
+$(sysconfdir)/alsa/conf.d in linux/reference is deliberately untouched;
+that namespace belongs to ALSA.
+
+Origin: https://github.com/AudioReach/audioreach-conf/pull/93
+Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
+---
+ linux/reference/Makefile.am    | 2 +-
+ nxp/reference/Makefile.am      | 2 +-
+ qcom/qli/GLYMUR/Makefile.am    | 2 +-
+ qcom/qli/Kaanapali/Makefile.am | 2 +-
+ qcom/qli/MAHUA/Makefile.am     | 2 +-
+ qcom/qli/X1E80100/Makefile.am  | 2 +-
+ qcom/qli/qcm6490/Makefile.am   | 2 +-
+ qcom/qli/qcs615/Makefile.am    | 2 +-
+ qcom/qli/qcs8275/Makefile.am   | 2 +-
+ qcom/qli/qcs8300/Makefile.am   | 2 +-
+ qcom/qli/qcs9075/Makefile.am   | 2 +-
+ qcom/qli/qcs9100/Makefile.am   | 2 +-
+ qcom/qli/sm8750/Makefile.am    | 2 +-
+ 13 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/linux/reference/Makefile.am b/linux/reference/Makefile.am
+index f670368..763a04c 100644
+--- a/linux/reference/Makefile.am
++++ b/linux/reference/Makefile.am
+@@ -12,7 +12,7 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+ 
+ if HAVE_LIBALSA
+diff --git a/nxp/reference/Makefile.am b/nxp/reference/Makefile.am
+index 00e03c9..81a4716 100644
+--- a/nxp/reference/Makefile.am
++++ b/nxp/reference/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/GLYMUR/Makefile.am b/qcom/qli/GLYMUR/Makefile.am
+index f10440b..f59d06f 100644
+--- a/qcom/qli/GLYMUR/Makefile.am
++++ b/qcom/qli/GLYMUR/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/Kaanapali/Makefile.am b/qcom/qli/Kaanapali/Makefile.am
+index 07f0ddc..00c8e7d 100644
+--- a/qcom/qli/Kaanapali/Makefile.am
++++ b/qcom/qli/Kaanapali/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/MAHUA/Makefile.am b/qcom/qli/MAHUA/Makefile.am
+index e433ac5..e5586b8 100644
+--- a/qcom/qli/MAHUA/Makefile.am
++++ b/qcom/qli/MAHUA/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/X1E80100/Makefile.am b/qcom/qli/X1E80100/Makefile.am
+index 168cd3d..42ae9c4 100644
+--- a/qcom/qli/X1E80100/Makefile.am
++++ b/qcom/qli/X1E80100/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/qcm6490/Makefile.am b/qcom/qli/qcm6490/Makefile.am
+index 7e50b4e..6433f99 100644
+--- a/qcom/qli/qcm6490/Makefile.am
++++ b/qcom/qli/qcm6490/Makefile.am
+@@ -15,5 +15,5 @@ config_acdbdata_idp_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/qcs615/Makefile.am b/qcom/qli/qcs615/Makefile.am
+index de88a68..60db21d 100644
+--- a/qcom/qli/qcs615/Makefile.am
++++ b/qcom/qli/qcs615/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/qcs8275/Makefile.am b/qcom/qli/qcs8275/Makefile.am
+index 98675c9..d4e13ca 100644
+--- a/qcom/qli/qcs8275/Makefile.am
++++ b/qcom/qli/qcs8275/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/qcs8300/Makefile.am b/qcom/qli/qcs8300/Makefile.am
+index d1678c5..d81b0ae 100644
+--- a/qcom/qli/qcs8300/Makefile.am
++++ b/qcom/qli/qcs8300/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/qcs9075/Makefile.am b/qcom/qli/qcs9075/Makefile.am
+index 6fd1ee4..93931dd 100644
+--- a/qcom/qli/qcs9075/Makefile.am
++++ b/qcom/qli/qcs9075/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/qcs9100/Makefile.am b/qcom/qli/qcs9100/Makefile.am
+index a8126c5..68076fd 100644
+--- a/qcom/qli/qcs9100/Makefile.am
++++ b/qcom/qli/qcs9100/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/sm8750/Makefile.am b/qcom/qli/sm8750/Makefile.am
+index f158483..eeff8b1 100644
+--- a/qcom/qli/sm8750/Makefile.am
++++ b/qcom/qli/sm8750/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
