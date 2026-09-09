@@ -1,8 +1,8 @@
 audioreach-conf (1.1.0-1qli2~) UNRELEASED; urgency=medium
 
-  * Unreleased changes
+  * d/control: Drop staging Breaks/Replaces.
 
- -- Debusine Action Bot <noreply@bot.invalid>  Wed, 09 Sep 2026 14:43:58 +0000
+ -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 09 Sep 2026 16:55:14 +0200
 
 audioreach-conf (1.1.0-1qli1) forky; urgency=medium
 
