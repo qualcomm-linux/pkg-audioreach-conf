@@ -37,10 +37,6 @@ Multi-Arch: same
 Section: non-free/libdevel
 Depends:
  ${misc:Depends},
-Breaks:
- audioreach-conf (<< 1.1.0-1qli+staging2~),
-Replaces:
- audioreach-conf (<< 1.1.0-1qli+staging2~),
 Description: AudioReach kvh2xml - development files
  kvh2xml provides key-value mappings used to parse or translate Audio
  Calibration Database (ACDB) data into XML formats for AudioReach.
