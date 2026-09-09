@@ -1,5 +1,6 @@
-audioreach-conf (1.1.0-1qli+staging3~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.0-1qli+staging3) forky; urgency=medium
 
+  [ Lukas Märdian ]
   * d/control: Mark conf/data-files Arch:all.
   * d/control: Rename to audioreach-calibration-data.
   * d/control: Rename to audioreach-kvh2xml-dev.
@@ -15,7 +16,7 @@ audioreach-conf (1.1.0-1qli+staging3~) UNRELEASED; urgency=medium
   * d/control: Split audioreach-conf package for device specific PCM config.
   * d/audioreach-*.links: Install symlinks for backwards compatibility.
 
- -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 09 Sep 2026 15:57:56 +0200
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 09 Sep 2026 14:08:40 +0000
 
 audioreach-conf (1.1.0-1qli+staging2) forky; urgency=medium
 
