@@ -4,6 +4,14 @@ audioreach-conf (1.1.0-1qli+staging3~bpo13+1~) UNRELEASED; urgency=medium
 
  -- Debusine Action Bot <noreply@bot.invalid>  Thu, 02 Jul 2026 11:53:14 +0000
 
+audioreach-conf (1.1.0-1qli1) forky; urgency=medium
+
+  [ Lukas Märdian ]
+  * Rebuild for QLI.
+  * d/gbp.conf: Update for QLI.
+
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 09 Sep 2026 14:30:31 +0000
+
 audioreach-conf (1.1.0-1qli+staging3) forky; urgency=medium
 
   [ Lukas Märdian ]
