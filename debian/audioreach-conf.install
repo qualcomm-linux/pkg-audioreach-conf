@@ -11,3 +11,5 @@ qcom/qli/qcm6490/card-defs.xml usr/share/audioreach/qcm6490
 qcom/qli/qcs9075/card-defs.xml usr/share/audioreach/qcs9075
 qcom/qli/qcs615/card-defs.xml usr/share/audioreach/qcs615
 qcom/qli/X1E80100/card-defs.xml usr/share/audioreach/X1E80100
+qcom/qli/shikra_cqs/card-defs.xml usr/share/audioreach/shikra_cqs
+qcom/qli/shikra_iqs/card-defs.xml usr/share/audioreach/shikra_iqs
