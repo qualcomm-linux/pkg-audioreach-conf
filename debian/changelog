@@ -1,4 +1,4 @@
-audioreach-conf (1.1.2-0qli1~) UNRELEASED; urgency=medium
+audioreach-conf (1.1.2-0qli1) forky; urgency=medium
 
   [ GitHub Service Bot ]
   * New upstream release
@@ -7,7 +7,7 @@ audioreach-conf (1.1.2-0qli1~) UNRELEASED; urgency=medium
   * d/audioreach-conf.install: Refresh for shikra boards.
   * d/patches: Refresh patches for shikra coverage.
 
- -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Mon, 28 Sep 2026 13:34:53 +0200
+ -- Debusine Action Bot <noreply@bot.invalid>  Mon, 28 Sep 2026 11:39:36 +0000
 
 audioreach-conf (1.1.0-1qli2) forky; urgency=medium
 
