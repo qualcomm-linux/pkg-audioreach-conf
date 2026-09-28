@@ -1,3 +1,9 @@
+audioreach-conf (1.1.2-0qli1~bpo13+1~) UNRELEASED; urgency=medium
+
+  * Rebuild for trixie/QLI.
+
+ -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Mon, 28 Sep 2026 13:45:05 +0200
+
 audioreach-conf (1.1.2-0qli1) forky; urgency=medium
 
   [ GitHub Service Bot ]
