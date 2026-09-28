@@ -1,12 +1,13 @@
 audioreach-conf (1.1.2-0qli1~) UNRELEASED; urgency=medium
 
-  [ Debusine Action Bot ]
-  * Unreleased changes
-
   [ GitHub Service Bot ]
   * New upstream release
 
- -- GitHub Service Bot <githubservice@qti.qualcomm.com>  Mon, 28 Sep 2026 05:06:25 +0000
+  [ Lukas Märdian ]
+  * d/audioreach-conf.install: Refresh for shikra boards.
+  * d/patches: Refresh patches for shikra coverage.
+
+ -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Mon, 28 Sep 2026 13:34:53 +0200
 
 audioreach-conf (1.1.0-1qli2) forky; urgency=medium
 
