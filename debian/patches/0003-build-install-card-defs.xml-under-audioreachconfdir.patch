@@ -33,8 +33,10 @@ Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
  qcom/qli/qcs8300/Makefile.am   | 2 +-
  qcom/qli/qcs9075/Makefile.am   | 2 +-
  qcom/qli/qcs9100/Makefile.am   | 2 +-
+ qcom/qli/shikra_cqs/Makefile.am | 2 +-
+ qcom/qli/shikra_iqs/Makefile.am | 2 +-
  qcom/qli/sm8750/Makefile.am    | 2 +-
- 13 files changed, 13 insertions(+), 13 deletions(-)
+ 15 files changed, 15 insertions(+), 15 deletions(-)
 
 diff --git a/linux/reference/Makefile.am b/linux/reference/Makefile.am
 index f670368..763a04c 100644
@@ -163,6 +165,26 @@ diff --git a/qcom/qli/qcs9100/Makefile.am b/qcom/qli/qcs9100/Makefile.am
 index a8126c5..68076fd 100644
 --- a/qcom/qli/qcs9100/Makefile.am
 +++ b/qcom/qli/qcs9100/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/shikra_cqs/Makefile.am b/qcom/qli/shikra_cqs/Makefile.am
+--- a/qcom/qli/shikra_cqs/Makefile.am
++++ b/qcom/qli/shikra_cqs/Makefile.am
+@@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/shikra_iqs/Makefile.am b/qcom/qli/shikra_iqs/Makefile.am
+--- a/qcom/qli/shikra_iqs/Makefile.am
++++ b/qcom/qli/shikra_iqs/Makefile.am
 @@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
  
  config_carddef = card-defs.xml
