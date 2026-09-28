@@ -114,6 +114,8 @@ enum Key_Values_StreamRX {
     INCALL_MUSIC_COMPRESS_DOWNLINK  = 0xA100001C,   /**< @h2xmle_name {Incall_Music_Compress_Downlink}*/
     PCM_IMMUTABLE                   = 0xA1000008,   /**< @h2xmle_name {PCM_Immutable_Playback}*/
     CALL_TRANSLATION_RX             = 0xA1000009,   /**< @h2xmle_name {Call_Translation_Rx} @h2xmle_description {For Call Translation Rx use case with Voice and VoIP.}*/
+    PCM_OFFLOAD_PLAYBACK_MMAP       = 0xA100001E,   /**< @h2xmle_name {PCM_OFFLOAD_PLAYBACK_MMAP} @h2xmle_description {Type of MMAP-based playback is designed for power efficiency, with a significant amount of PCM data offloaded to the DSP. Unlike simple MMAP playback, which prioritizes latency.}*/
+    PCM_DEEP_BUFFER_MMAP            = 0xA100001D,   /**< @h2xmle_name {PCM_Deep_Buffer_Mmap_Playback}*/
 };
 
 /**
@@ -487,6 +489,7 @@ enum Key_Values_BtFormat {
     AAC_ABR         = 0xB5000006,   /**< @h2xmle_name {AAC_ABR}*/
     APTX_AD_QLEA    = 0xB5000007,   /**< @h2xmle_name {APTX_AD_QLEA}*/
     APTX_AD_R4      = 0xB5000008,   /**< @h2xmle_name {APTX_AD_R4}*/
+    APTX_PLUS       = 0xB500000A,   /**< @h2xmle_name {APTX_PLUS}*/
 };
 
 /**
@@ -990,6 +993,7 @@ enum Tag_Definitions {
     TAG_AMS_SW_RD_EP_4              = 0xC0000050, /**< @h2xmle_name {"ams_sw_rd_ep_4"} @h2xmle_description {tagged module can be used as shared memory endpoint in AMS} */
     TAG_TONE_RENDERER_MODULE        = 0xC0000051, /**< @h2xmle_name {"tone_renderer_module"} @h2xmle_description {this tag is used to identify the new module - ToneRenderer so miid can be queried from HLOS} */
     TAG_MODULE_ASR                  = 0xC0000057, /**< @h2xmle_name {"module_asr"} @h2xmle_description {Tag to be used to identify the MIID of ASR module} */
+    TAG_UVCALL_VOICECUE             = 0xC000005A, /**< @h2xmle_name {"uvcall_voicecue"} @h2xmle_description {uv call voice cue } */
     MODULE_SOUND_DOSE               = 0xC000005C, /**< @h2xmle_name {"module_sound_dose"} @h2xmle_description {Module computes momentary exposure values and report for the SoundDose Feature.}  */
     TRANSLATION_ASR                 = 0xC0000060, /**< @h2xmle_name {"translation_asr"} @h2xmle_description {Use this tag for setting config to the ASR module in the Call Translation Graph.}  */
     TRANSLATION_NMT                 = 0xC0000061, /**< @h2xmle_name {"translation_nmt"} @h2xmle_description {Use this tag for setting config to the NMT module in the Call Translation Graph.}  */
@@ -997,6 +1001,7 @@ enum Tag_Definitions {
     TAG_MODULE_WNR                  = 0xC0000063, /**< @h2xmle_name {"module_wnr"} @h2xmle_description {Tag to be used to identify the MIID of WNR module} */
     TAG_MODULE_SDZ                  = 0xC0000064, /**< @h2xmle_name {"module_sdz"} @h2xmle_description {Tag to be used to identify the MIID of speaker diarization module} */
     MODULE_SA_HDT                   = 0xC0000066, /**< @h2xmle_name {"module_sa_hdt"} @h2xmle_description {Tag to be used to identify the MIID of spatializer headtracking module} */
+    MODULE_SPATIAL_AUDIO            = 0xC0000067, /**< @h2xmle_name {"module_spatial_audio"} @h2xmle_description {Tag to be used to identify the MIID of spatializer module} */
     TAG_VOICE_NS_RX_CONFIG          = 0xC000006C, /**< @h2xmle_name {"module_voice_ns_rx_config"} @h2xmle_description {Tag to be used to set dynamic transition mode on FNN_NS module} */
 };
 typedef enum Tag_Definitions Tag_Definitions;
