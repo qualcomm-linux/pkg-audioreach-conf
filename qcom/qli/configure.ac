@@ -16,7 +16,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_CXX
-AC_PROG_LIBTOOL
+LT_INIT
 AC_PROG_AWK
 AC_PROG_CPP
 AC_PROG_INSTALL
@@ -44,6 +44,7 @@ AC_CONFIG_FILES([ \
     MAHUA/Makefile   MAHUA/config.pc \
     Kaanapali/Makefile Kaanapali/config.pc \
     X1E80100/Makefile X1E80100/config.pc \
+    nord/Makefile nord/config.pc \
     shikra_cqs/Makefile shikra_cqs/config.pc \
     shikra_iqs/Makefile shikra_iqs/config.pc
     ])
