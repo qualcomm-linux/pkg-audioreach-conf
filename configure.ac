@@ -7,7 +7,7 @@
 # Requires autoconf tool later than 2.61
 AC_PREREQ(2.69)
 # Initialize the acdbdata package version 1.0.0
-AC_INIT([audioreach-conf],1.1.2)
+AC_INIT([audioreach-conf],1.1.3)
 # Does not strictly follow GNU Coding standards
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 # defines some macros variable to be included by source
@@ -17,7 +17,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_CXX
-AC_PROG_LIBTOOL
+LT_INIT
 AC_PROG_AWK
 AC_PROG_CPP
 AC_PROG_INSTALL
