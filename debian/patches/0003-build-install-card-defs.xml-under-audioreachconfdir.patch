@@ -21,22 +21,24 @@ that namespace belongs to ALSA.
 Origin: https://github.com/AudioReach/audioreach-conf/pull/93
 Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
 ---
- linux/reference/Makefile.am    | 2 +-
- nxp/reference/Makefile.am      | 2 +-
- qcom/qli/GLYMUR/Makefile.am    | 2 +-
- qcom/qli/Kaanapali/Makefile.am | 2 +-
- qcom/qli/MAHUA/Makefile.am     | 2 +-
- qcom/qli/X1E80100/Makefile.am  | 2 +-
- qcom/qli/qcm6490/Makefile.am   | 2 +-
- qcom/qli/qcs615/Makefile.am    | 2 +-
- qcom/qli/qcs8275/Makefile.am   | 2 +-
- qcom/qli/qcs8300/Makefile.am   | 2 +-
- qcom/qli/qcs9075/Makefile.am   | 2 +-
- qcom/qli/qcs9100/Makefile.am   | 2 +-
- qcom/qli/shikra_cqs/Makefile.am | 2 +-
- qcom/qli/shikra_iqs/Makefile.am | 2 +-
- qcom/qli/sm8750/Makefile.am    | 2 +-
- 15 files changed, 15 insertions(+), 15 deletions(-)
+ linux/reference/Makefile.am        | 2 +-
+ nxp/reference/Makefile.am          | 2 +-
+ qcom/qli/GLYMUR/Makefile.am        | 2 +-
+ qcom/qli/HAWI/Makefile.am          | 2 +-
+ qcom/qli/Kaanapali/Makefile.am     | 2 +-
+ qcom/qli/MAHUA/Makefile.am         | 2 +-
+ qcom/qli/X1E80100/Makefile.am      | 2 +-
+ qcom/qli/arduino_monza/Makefile.am | 2 +-
+ qcom/qli/qcm6490/Makefile.am       | 2 +-
+ qcom/qli/qcs615/Makefile.am        | 2 +-
+ qcom/qli/qcs8275/Makefile.am       | 2 +-
+ qcom/qli/qcs8300/Makefile.am       | 2 +-
+ qcom/qli/qcs9075/Makefile.am       | 2 +-
+ qcom/qli/qcs9100/Makefile.am       | 2 +-
+ qcom/qli/shikra_cqs/Makefile.am    | 2 +-
+ qcom/qli/shikra_iqs/Makefile.am    | 2 +-
+ qcom/qli/sm8750/Makefile.am        | 2 +-
+ 17 files changed, 17 insertions(+), 17 deletions(-)
 
 diff --git a/linux/reference/Makefile.am b/linux/reference/Makefile.am
 index f670368..763a04c 100644
@@ -73,6 +75,17 @@ index f10440b..f59d06f 100644
 -config_carddefdir = $(sysconfdir)
 +config_carddefdir = $(audioreachconfdir)
  config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/HAWI/Makefile.am b/qcom/qli/HAWI/Makefile.am
+index 7b5ae94..52f9d8e 100644
+--- a/qcom/qli/HAWI/Makefile.am
++++ b/qcom/qli/HAWI/Makefile.am
+@@ -8,5 +8,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
 diff --git a/qcom/qli/Kaanapali/Makefile.am b/qcom/qli/Kaanapali/Makefile.am
 index 07f0ddc..00c8e7d 100644
 --- a/qcom/qli/Kaanapali/Makefile.am
@@ -100,6 +113,17 @@ index 168cd3d..42ae9c4 100644
 --- a/qcom/qli/X1E80100/Makefile.am
 +++ b/qcom/qli/X1E80100/Makefile.am
 @@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+ 
+-config_carddefdir = $(sysconfdir)
++config_carddefdir = $(audioreachconfdir)
+ config_carddef_DATA = $(config_carddef)
+diff --git a/qcom/qli/arduino_monza/Makefile.am b/qcom/qli/arduino_monza/Makefile.am
+index 16055fd..ba223e8 100644
+--- a/qcom/qli/arduino_monza/Makefile.am
++++ b/qcom/qli/arduino_monza/Makefile.am
+@@ -11,5 +11,5 @@ config_acdbdata_mg_DATA = $(config_acdbdata)
  
  config_carddef = card-defs.xml
  
@@ -173,6 +197,7 @@ index a8126c5..68076fd 100644
 +config_carddefdir = $(audioreachconfdir)
  config_carddef_DATA = $(config_carddef)
 diff --git a/qcom/qli/shikra_cqs/Makefile.am b/qcom/qli/shikra_cqs/Makefile.am
+index da3b568..dcea694 100644
 --- a/qcom/qli/shikra_cqs/Makefile.am
 +++ b/qcom/qli/shikra_cqs/Makefile.am
 @@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
@@ -183,6 +208,7 @@ diff --git a/qcom/qli/shikra_cqs/Makefile.am b/qcom/qli/shikra_cqs/Makefile.am
 +config_carddefdir = $(audioreachconfdir)
  config_carddef_DATA = $(config_carddef)
 diff --git a/qcom/qli/shikra_iqs/Makefile.am b/qcom/qli/shikra_iqs/Makefile.am
+index 5113c25..ccadde9 100644
 --- a/qcom/qli/shikra_iqs/Makefile.am
 +++ b/qcom/qli/shikra_iqs/Makefile.am
 @@ -12,5 +12,5 @@ config_acdbdata_DATA = $(config_acdbdata)
