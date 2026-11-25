@@ -47,10 +47,10 @@ Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
  create mode 100644 qcom/qli/m4/audioreach-paths.m4
 
 diff --git a/configure.ac b/configure.ac
-index 6af70b4..7919729 100644
+index 7c0fafa..07fb725 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -12,6 +12,8 @@ AC_INIT([audioreach-conf],1.0.0)
+@@ -12,6 +12,8 @@ AC_INIT([audioreach-conf],1.2.0)
  AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
  # defines some macros variable to be included by source
  AC_CONFIG_HEADERS([config.h])
@@ -112,7 +112,7 @@ index 0000000..eda3cbc
 +  AC_SUBST([audioreachdeltadir])
 +])
 diff --git a/qcom/qli/configure.ac b/qcom/qli/configure.ac
-index a4994c1..a340cbb 100644
+index 75c8b26..152a948 100644
 --- a/qcom/qli/configure.ac
 +++ b/qcom/qli/configure.ac
 @@ -11,6 +11,8 @@ AC_INIT([audioreach-conf],1.0.0)

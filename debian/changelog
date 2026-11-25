@@ -4,6 +4,20 @@ audioreach-conf (1.1.2-0qli1~bpo13+2~) UNRELEASED; urgency=medium
 
  -- Debusine Action Bot <noreply@bot.invalid>  Mon, 28 Sep 2026 11:51:36 +0000
 
+audioreach-conf (1.2.0-0qli1) forky; urgency=medium
+
+  [ GitHub Service Bot ]
+  * New upstream release 1.2.0
+
+  [ Lukas Märdian ]
+  * d/audioreach-conf.install: Update card-defs.xml files.
+  * d/patches: Refresh for new board files.
+    - d/p/0001-build-add-AR_PATHS-macro-for-shared-installation-pat.patch
+    - d/p/0002-build-install-ACDB-data-under-audioreachdatadir.patch
+    - d/p/0003-build-install-card-defs.xml-under-audioreachconfdir.patch
+
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 25 Nov 2026 11:57:34 +0000
+
 audioreach-conf (1.1.2-0qli1~bpo13+1) trixie; urgency=medium
 
   [ Lukas Märdian ]

@@ -9,7 +9,8 @@ the device. They belong under ${datadir}, not ${sysconfdir}.
   /etc/acdbdata/<BOARD>/ -> /usr/share/audioreach/acdbdata/<BOARD>/
 
 qcm6490 has two of these directories -- QCS6490_RB3Gen2 and QCM6490_IDP
--- and both are converted.
+-- and so does arduino_monza -- arduino_monza and monaco_gertrude; all
+are converted.
 
 audioreach-graphmgr reads this location as -DACDB_PATH and must be
 updated to match. Packaging that lists ${sysconfdir}/acdbdata needs
@@ -22,22 +23,25 @@ that reason and is used by audioreach-graphmgr, not here.
 Origin: https://github.com/AudioReach/audioreach-conf/pull/93
 Signed-off-by: Ali Erdinc Koroglu <ali.koroglu@oss.qualcomm.com>
 ---
- linux/reference/Makefile.am    | 2 +-
- nxp/reference/Makefile.am      | 2 +-
- qcom/qli/GLYMUR/Makefile.am    | 2 +-
- qcom/qli/Kaanapali/Makefile.am | 2 +-
- qcom/qli/MAHUA/Makefile.am     | 2 +-
- qcom/qli/X1E80100/Makefile.am  | 2 +-
- qcom/qli/qcm6490/Makefile.am   | 4 ++--
- qcom/qli/qcs615/Makefile.am    | 2 +-
- qcom/qli/qcs8275/Makefile.am   | 2 +-
- qcom/qli/qcs8300/Makefile.am   | 2 +-
- qcom/qli/qcs9075/Makefile.am   | 2 +-
- qcom/qli/qcs9100/Makefile.am   | 2 +-
- qcom/qli/shikra_cqs/Makefile.am | 2 +-
- qcom/qli/shikra_iqs/Makefile.am | 2 +-
- qcom/qli/sm8750/Makefile.am    | 2 +-
- 15 files changed, 16 insertions(+), 16 deletions(-)
+ linux/reference/Makefile.am        | 2 +-
+ nxp/reference/Makefile.am          | 2 +-
+ qcom/qli/GLYMUR/Makefile.am        | 2 +-
+ qcom/qli/HAWI/Makefile.am          | 2 +-
+ qcom/qli/Kaanapali/Makefile.am     | 2 +-
+ qcom/qli/MAHUA/Makefile.am         | 2 +-
+ qcom/qli/X1E80100/Makefile.am      | 2 +-
+ qcom/qli/arduino_monza/Makefile.am | 4 ++--
+ qcom/qli/nord/Makefile.am          | 2 +-
+ qcom/qli/qcm6490/Makefile.am       | 4 ++--
+ qcom/qli/qcs615/Makefile.am        | 2 +-
+ qcom/qli/qcs8275/Makefile.am       | 2 +-
+ qcom/qli/qcs8300/Makefile.am       | 2 +-
+ qcom/qli/qcs9075/Makefile.am       | 2 +-
+ qcom/qli/qcs9100/Makefile.am       | 2 +-
+ qcom/qli/shikra_cqs/Makefile.am    | 2 +-
+ qcom/qli/shikra_iqs/Makefile.am    | 2 +-
+ qcom/qli/sm8750/Makefile.am        | 2 +-
+ 18 files changed, 20 insertions(+), 20 deletions(-)
 
 diff --git a/linux/reference/Makefile.am b/linux/reference/Makefile.am
 index 25e514c..f670368 100644
@@ -75,6 +79,19 @@ index 57f70cd..f10440b 100644
  
 -config_acdbdatadir = $(sysconfdir)/acdbdata/GLYMUR/
 +config_acdbdatadir = $(audioreachdatadir)/acdbdata/GLYMUR/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/HAWI/Makefile.am b/qcom/qli/HAWI/Makefile.am
+index 47e3596..7b5ae94 100644
+--- a/qcom/qli/HAWI/Makefile.am
++++ b/qcom/qli/HAWI/Makefile.am
+@@ -3,7 +3,7 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/HAWI/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/HAWI/
  config_acdbdata_DATA = $(config_acdbdata)
  
  config_carddef = card-defs.xml
@@ -117,6 +134,34 @@ index 79fe460..168cd3d 100644
  config_acdbdata_DATA = $(config_acdbdata)
  
  config_carddef = card-defs.xml
+diff --git a/qcom/qli/arduino_monza/Makefile.am b/qcom/qli/arduino_monza/Makefile.am
+index 072d372..16055fd 100644
+--- a/qcom/qli/arduino_monza/Makefile.am
++++ b/qcom/qli/arduino_monza/Makefile.am
+@@ -3,10 +3,10 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/arduino_monza/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/arduino_monza/
+ config_acdbdata_DATA = $(config_acdbdata)
+ 
+-config_acdbdata_mgdir = $(sysconfdir)/acdbdata/monaco_gertrude/
++config_acdbdata_mgdir = $(audioreachdatadir)/acdbdata/monaco_gertrude/
+ config_acdbdata_mg_DATA = $(config_acdbdata)
+ 
+ config_carddef = card-defs.xml
+diff --git a/qcom/qli/nord/Makefile.am b/qcom/qli/nord/Makefile.am
+index be3d231..30aa99b 100644
+--- a/qcom/qli/nord/Makefile.am
++++ b/qcom/qli/nord/Makefile.am
+@@ -7,5 +7,5 @@ AM_CFLAGS = -Wall -Werror
+ config_acdbdata = acdbdata/acdb_cal.acdb\
+ 		 acdbdata/workspaceFileXml.qwsp
+ 
+-config_acdbdatadir = $(sysconfdir)/acdbdata/NORD_RIDE/
++config_acdbdatadir = $(audioreachdatadir)/acdbdata/NORD_RIDE/
+ config_acdbdata_DATA = $(config_acdbdata)
 diff --git a/qcom/qli/qcm6490/Makefile.am b/qcom/qli/qcm6490/Makefile.am
 index e0ebc31..7e50b4e 100644
 --- a/qcom/qli/qcm6490/Makefile.am
@@ -200,6 +245,7 @@ index fa35744..a8126c5 100644
  
  config_carddef = card-defs.xml
 diff --git a/qcom/qli/shikra_cqs/Makefile.am b/qcom/qli/shikra_cqs/Makefile.am
+index c3513d1..da3b568 100644
 --- a/qcom/qli/shikra_cqs/Makefile.am
 +++ b/qcom/qli/shikra_cqs/Makefile.am
 @@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
@@ -212,6 +258,7 @@ diff --git a/qcom/qli/shikra_cqs/Makefile.am b/qcom/qli/shikra_cqs/Makefile.am
  
  config_carddef = card-defs.xml
 diff --git a/qcom/qli/shikra_iqs/Makefile.am b/qcom/qli/shikra_iqs/Makefile.am
+index 0bf013c..5113c25 100644
 --- a/qcom/qli/shikra_iqs/Makefile.am
 +++ b/qcom/qli/shikra_iqs/Makefile.am
 @@ -7,7 +7,7 @@ AM_CFLAGS = -Wall -Werror
