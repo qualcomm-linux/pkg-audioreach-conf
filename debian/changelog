@@ -1,8 +1,9 @@
-audioreach-conf (1.2.0-0qli1~bpo13+1~) UNRELEASED; urgency=medium
+audioreach-conf (1.2.0-0qli1~bpo13+1) trixie; urgency=medium
 
+  [ Lukas Märdian ]
   * Rebuild for trixie.
 
- -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 25 Nov 2026 13:05:35 +0100
+ -- Debusine Action Bot <noreply@bot.invalid>  Wed, 25 Nov 2026 12:09:24 +0000
 
 audioreach-conf (1.2.0-0qli1) forky; urgency=medium
 
