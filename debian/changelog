@@ -1,12 +1,16 @@
-audioreach-conf (1.1.3-0qli1~) UNRELEASED; urgency=medium
-
-  [ Debusine Action Bot ]
-  * Unreleased changes
+audioreach-conf (1.2.0-0qli1~) UNRELEASED; urgency=medium
 
   [ GitHub Service Bot ]
-  * New upstream release
+  * New upstream release 1.2.0
 
- -- GitHub Service Bot <githubservice@qti.qualcomm.com>  Mon, 26 Oct 2026 10:41:33 +0000
+  [ Lukas Märdian ]
+  * d/audioreach-conf.install: Update card-defs.xml files.
+  * d/patches: Refresh for new board files.
+    - d/p/0001-build-add-AR_PATHS-macro-for-shared-installation-pat.patch
+    - d/p/0002-build-install-ACDB-data-under-audioreachdatadir.patch
+    - d/p/0003-build-install-card-defs.xml-under-audioreachconfdir.patch
+
+ -- Lukas Märdian <lukas.maerdian@oss.qualcomm.com>  Wed, 25 Nov 2026 11:17:21 +0100
 
 audioreach-conf (1.1.2-0qli1) forky; urgency=medium
 
